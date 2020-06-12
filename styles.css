@@ -1,0 +1,101 @@
+html, body {
+    height: 100%;
+}
+html {
+    display: table;
+    margin: auto;
+}
+body {
+    display: table-cell;
+    vertical-align: middle;
+    background-color: #252525;
+}
+h1{
+    padding-top: 15%;
+    letter-spacing: 2px;
+    float:left;
+    font-family:sans-serif;
+    width:50%;
+    background:none;
+    font-weight:300;
+    color: white;
+    margin: 0.2em 0 0 0;
+}
+.button1{
+    background: none;
+    display:inline-block;
+    padding:0.35em 1.2em;
+    border:0.1em solid #FFFFFF;
+    margin:0 0.3em 0.3em 0;
+    border-radius:0.12em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-weight:300;
+    color:#FFFFFF;
+    text-align:center;
+    transition: all 0.2s;
+}
+.button1:hover{
+    color:#000000;
+    background-color:#FFFFFF;
+}
+@media all and (max-width:30em){
+    .button1{
+    display:block;
+    margin:0.4em auto;
+    }
+    .select1{
+    display:block;
+    margin:0.4em auto;
+    }
+}
+
+.select1{
+    background:none;
+    display: inline-block;
+    padding: 0.25em 1.1em;
+    border: 0.1em solid white;
+    margin: 0 0.3em 0.3em 0;
+    border-radius: 0.12em;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-weight:300;
+    color: white;
+    text-align:center;
+    transition: all 0.2s;
+    box-sizing: border-box;
+    appearance:none;
+    -moz-appearance:none;
+}
+.select1:hover{
+    color:black;
+    background-color:white;
+}
+
+.mainButtons{
+    width: 20%;
+    float:left;
+}
+.slider{
+    opacity: 0.7;
+    float:left;
+    width:115px;
+}
+.slider:hover {
+    opacity: 1;
+}
+.countText{
+    white-space: pre;
+    
+    font-family:sans-serif;
+    width:50%;
+    background:none;
+    font-weight:300;
+    color: white;
+    margin: 0.2em 0 0 0;
+}
+.stats{
+    float:left;
+    width: 25%;
+    height: 100%;
+}
