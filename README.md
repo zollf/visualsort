@@ -4,11 +4,13 @@ Uses promises to delay run time, so `draw()` can create animation that is humanl
 
 ## How the spiral works
 > Given an array of inputs arr[n], we will create a spiral using polar equations.
+
 x = ricos(iθ) + c, y = risin(iθ) + c
 r = arr[i]
 θ = 2π/n 
 i = current index of the array
 c = centered value for corresponding axis
+
 > 'spiralVal' is randomised value that to get a random design for the spiral. The random value will influence the modulus and arguement of the equation
 ```js
 spiralVal = randomInt(3, 6) * Math.random() + 4;
