@@ -80,14 +80,19 @@ function draw(){
     }
 
     // SPIRAL
-    let r = 8;
+    let dotsize = 8;
     let fracCircle = (2 * pi)/MAX_VALUES;
     for(let i = 0; i <= MAX_VALUES; i++){
+        // Color of each dot, increasing in value
         fill(color(values[i]**2 /1000, 100, 100));
+        
         let angle = fracCircle * i * spiralVal;
-        let x = (CENTER_POINT_X) +              (values[i]/150 * angle * Math.cos(angle));  
-        let y = (CENTER_POINT_Y + r/2 + 20) +   (values[i]/150 * angle * Math.sin(angle));
-        circle(x, y, r);
+
+        let x = (CENTER_POINT_X) +              (2*values[i]/spiralVal * Math.cos(angle));  
+        let y = (CENTER_POINT_Y + dotsize/2 + 20) +   (2*values[i]/spiralVal * Math.sin(angle));
+
+
+        circle(x, y, dotsize);
     }
 
     //
@@ -141,9 +146,6 @@ function startSort(){
                 break;
             case 'Selection':
                 selectionSort(values);
-                break;
-            case 'Gnome':
-                gnomeSort(values);
                 break;
             case 'Merge':
                 mergeSort(values, 0, values.length - 1);
