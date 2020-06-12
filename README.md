@@ -1,6 +1,6 @@
 # Sorting Visualised
 Sorting algorithms visualised in form of a spiral, as well as basic sorting rectangle to fill the background. 
-Uses promises to delay run time, so `draw()` can create animation that is humanly visable.
+Uses promises to delay run time, so `draw()` can create animation that is humanly visable. Runs both 'draw()' and sorting algorithms asynchronously.
 
 ## How the spiral works
 > Given an array of inputs arr[n], we will create a spiral using polar equations.
