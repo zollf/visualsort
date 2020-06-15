@@ -90,8 +90,8 @@ function draw(){
         
         let angle = fracCircle * i * spiralVal;
 
-        let x = (CENTER_POINT_X) +              (2*values[i]/spiralVal * Math.cos(angle));  
-        let y = (CENTER_POINT_Y + dotsize/2 + 20) +   (2*values[i]/spiralVal * Math.sin(angle));
+        let x = (CENTER_POINT_X) +              (1.5*values[i]/spiralVal * Math.cos(angle));  
+        let y = (CENTER_POINT_Y + dotsize/2 + 20) +   (1.5*values[i]/spiralVal * Math.sin(angle));
 
 
         circle(x, y, dotsize);
@@ -116,13 +116,13 @@ function draw(){
     text('STATUS: ' + status[statusVal], CAVAS_X_PADDING , CANVAS_SIZE_Y - 12.5);
     
     // Running Statistics
-    document.getElementById("arrLength").innerHTML = "Length:\t\t\t" + values.length;
-    document.getElementById("arrChange").innerHTML = "Changes:\t\t" + arrCount;
-    document.getElementById("arrComp").innerHTML = "Comparisons: \t" + arrComp;
-    document.getElementById("arrTick").innerHTML = "Ticks: \t\t\t" + ticks;
+    document.getElementById("arrLength-val").innerHTML =  values.length;
+    document.getElementById("arrChange-val").innerHTML =  arrCount;
+    document.getElementById("arrComp-val").innerHTML =  arrComp;
+    document.getElementById("arrTick-val").innerHTML = ticks;
 
-    document.getElementById("totalComp").innerHTML = "Comparisons: \t\t" + totalComp;
-    document.getElementById("totalLoop").innerHTML = "Loops: \t\t\t" + totalLoop;
+    document.getElementById("totalComp-val").innerHTML = totalComp;
+    document.getElementById("totalLoop-val").innerHTML =  totalLoop;
 }
 
 function initialiseMaxVal(max){

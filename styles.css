@@ -1,39 +1,54 @@
 html, body {
     height: 100%;
+
+    background-color: #252525;
 }
 html {
     display: table;
     margin: auto;
 }
 body {
-    display: table-cell;
-    vertical-align: middle;
+
     background-color: #252525;
 }
+.title{
+    font-weight: 200 !important;
+}
 h1{
+    
     padding-top: 15%;
     letter-spacing: 2px;
     float:left;
     font-family:sans-serif;
     width:50%;
     background:none;
-    font-weight:300;
+
     color: white;
     margin: 0.2em 0 0 0;
 }
+.canvas, .bottom-canvas{
+
+    background-color: #252525;
+}
+.col-centered{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 .button1{
+    width: 45%;
     background: none;
-    display:inline-block;
-    padding:0.35em 1.2em;
+    padding:0.25em 1.1em !important;
     border:0.1em solid #FFFFFF;
-    margin:0 0.3em 0.3em 0;
-    border-radius:0.12em;
+    margin:0 0.3em 0.3em 0 !important;
+    border-radius:0.12em !important;
     box-sizing: border-box;
     text-decoration:none;
     font-weight:300;
     color:#FFFFFF;
-    text-align:center;
+    text-align:center !important;
     transition: all 0.2s;
+    float: left !important;
 }
 .button1:hover{
     color:#000000;
@@ -51,9 +66,10 @@ h1{
 }
 
 .select1{
+    width: calc(90% + 0.3em);
     background:none;
     display: inline-block;
-    padding: 0.25em 1.1em;
+    padding: 0.25em 1.1em !important;
     border: 0.1em solid white;
     margin: 0 0.3em 0.3em 0;
     border-radius: 0.12em;
@@ -73,13 +89,14 @@ h1{
 }
 
 .mainButtons{
-    width: 20%;
-    float:left;
+    width: 100%;
+    
 }
+
 .slider{
     opacity: 0.7;
-    float:left;
-    width:115px;
+    width: calc(90% + 0.3em);
+
 }
 .slider:hover {
     opacity: 1;
@@ -95,7 +112,14 @@ h1{
     margin: 0.2em 0 0 0;
 }
 .stats{
-    float:left;
-    width: 25%;
-    height: 100%;
+    background-color: #252525;
+}
+.stat-text{
+    text-align:right;
+    float: right;
+}
+.stats > p{
+    width: 100%;
+    margin: 0px !important;
+    
 }
