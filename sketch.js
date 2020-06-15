@@ -45,6 +45,7 @@ function setup(){
 }
 
 function draw(){
+
     var slider = document.getElementById("amountSlider").value;
     if(prevSliderValue == slider){
         hasSliderChanged = false;
@@ -52,6 +53,7 @@ function draw(){
         hasSliderChanged = true;
         prevSliderValue = slider;
     }
+    
     if(isRunning == false && hasSliderChanged == true){
         initialiseMaxVal(slider);
         resetSort();
