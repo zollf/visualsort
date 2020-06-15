@@ -85,7 +85,9 @@ function draw(){
     // SPIRAL
     var dotsize = 8;
     var fracCircle = (2 * pi)/MAX_VALUES;
+
     
+    // as MAX_VALUES -> 500, modVal -> 32
     for(let i = 0; i <= MAX_VALUES; i++){
         // Color of each dot, increasing in value
         fill(color(values[i]**2 /1000, 100, 100));
@@ -95,15 +97,15 @@ function draw(){
         var x = (CENTER_POINT_X) +                    (1.5*values[i]/spiralVal * Math.cos(angle));  
         var y = (CENTER_POINT_Y + dotsize/2 + 20) +   (1.5*values[i]/spiralVal * Math.sin(angle));
         stroke(color(values[i]**2 /1000, 100, 100));
-        for(var j = i; j <= MAX_VALUES; j++){
+        for(var j = i; j <= i+15; j++){
             
             var angle2 = fracCircle * j * spiralVal;
             var x2 = (CENTER_POINT_X) +                    (1.5*values[j]/spiralVal * Math.cos(angle2));  
             var y2 = (CENTER_POINT_Y + dotsize/2 + 20) +   (1.5*values[j]/spiralVal * Math.sin(angle2));
-
-            if( sqrt(pow(abs(x - x2), 2) + pow(abs(y - y2), 2)) <= i/3 ){
+            
+            //if( sqrt(pow(abs(x - x2), 2) + pow(abs(y - y2), 2))){
                 line(x, y, x2, y2);
-            }
+            //}
 
         }
 
