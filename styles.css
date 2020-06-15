@@ -1,16 +1,11 @@
 html, body {
-    height: 100%;
-
     background-color: #252525;
 }
 html {
     display: table;
     margin: auto;
 }
-body {
 
-    background-color: #252525;
-}
 .title{
     font-weight: 200 !important;
 }
@@ -36,7 +31,8 @@ h1{
     margin-right: auto;
 }
 .button1{
-    width: 45%;
+    
+    width: calc(45%);
     background: none;
     padding:0.25em 1.1em !important;
     border:0.1em solid #FFFFFF;
