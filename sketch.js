@@ -6,6 +6,7 @@ const CAVAS_Y_PADDING = 30;
 const CENTER_POINT_X = CANVAS_SIZE_X/2;
 const CENTER_POINT_Y = (CANVAS_SIZE_Y - 60)/2;
 const pi = Math.PI;
+const borderWidth = 2;
 var spiralVal = 5;
 
 var rectWidth; 
@@ -24,7 +25,7 @@ let status = [
 var stringStatus = status[statusVal];
 
 var hasSliderChanged = false;
-var prevSliderValue = 200;
+var prevSliderValue = 201;
 
 var arrCount = 0;
 var arrComp = 0;
@@ -34,10 +35,10 @@ var totalComp = 0;
 var totalLoop = 0;
 
 function setup(){
-    initialiseMaxVal(200);
+    initialiseMaxVal(201);
     colorMode(HSB);
     var canvas = createCanvas(CANVAS_SIZE_X, CANVAS_SIZE_Y);
-    for(i = 0; i < MAX_VALUES-1; i++){
+    for(i = 0; i < MAX_VALUES; i++){
         values[i] = round(Math.random() * (CANVAS_SIZE_X - 2*CAVAS_X_PADDING));
     }
     frameRate(60);
@@ -64,7 +65,7 @@ function draw(){
 
     background(20);
     strokeWeight(0);
-    let borderWidth = 2;
+    
     rect(CAVAS_X_PADDING - borderWidth, 30 - borderWidth, rectWidth * (MAX_VALUES) + 2*borderWidth, CANVAS_SIZE_Y - 60 + 2*borderWidth);
     fill(color(15));
     rect(CAVAS_X_PADDING, 30, rectWidth * (MAX_VALUES), CANVAS_SIZE_Y - 60);
@@ -82,21 +83,33 @@ function draw(){
     }
 
     // SPIRAL
-    let dotsize = 8;
-    let fracCircle = (2 * pi)/MAX_VALUES;
+    var dotsize = 8;
+    var fracCircle = (2 * pi)/MAX_VALUES;
+    
     for(let i = 0; i <= MAX_VALUES; i++){
         // Color of each dot, increasing in value
         fill(color(values[i]**2 /1000, 100, 100));
         
-        let angle = fracCircle * i * spiralVal;
+        var angle = fracCircle * i * spiralVal;
+        
+        var x = (CENTER_POINT_X) +                    (1.5*values[i]/spiralVal * Math.cos(angle));  
+        var y = (CENTER_POINT_Y + dotsize/2 + 20) +   (1.5*values[i]/spiralVal * Math.sin(angle));
+        stroke(color(values[i]**2 /1000, 100, 100));
+        for(var j = i; j <= MAX_VALUES; j++){
+            
+            var angle2 = fracCircle * j * spiralVal;
+            var x2 = (CENTER_POINT_X) +                    (1.5*values[j]/spiralVal * Math.cos(angle2));  
+            var y2 = (CENTER_POINT_Y + dotsize/2 + 20) +   (1.5*values[j]/spiralVal * Math.sin(angle2));
 
-        let x = (CENTER_POINT_X) +              (1.5*values[i]/spiralVal * Math.cos(angle));  
-        let y = (CENTER_POINT_Y + dotsize/2 + 20) +   (1.5*values[i]/spiralVal * Math.sin(angle));
+            if( sqrt(pow(abs(x - x2), 2) + pow(abs(y - y2), 2)) <= i/3 ){
+                line(x, y, x2, y2);
+            }
 
+        }
 
         circle(x, y, dotsize);
     }
-
+    stroke(0);
     //
 
     if(isSorted(values) == true){
@@ -116,7 +129,7 @@ function draw(){
     text('STATUS: ' + status[statusVal], CAVAS_X_PADDING , CANVAS_SIZE_Y - 12.5);
     
     // Running Statistics
-    document.getElementById("arrLength-val").innerHTML =  values.length;
+    document.getElementById("arrLength-val").innerHTML =  values.length-1;
     document.getElementById("arrChange-val").innerHTML =  arrCount;
     document.getElementById("arrComp-val").innerHTML =  arrComp;
     document.getElementById("arrTick-val").innerHTML = ticks;
